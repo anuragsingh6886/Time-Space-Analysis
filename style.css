@@ -1,36 +1,3 @@
-body {
-    color: #73777a;
-    background-color: rgb(33, 36, 39);
-}
-
-table {
-    width: 750px;
-    border-collapse: collapse;
-    margin: 50px auto;
-}
-
-.Cheatsheet {
-    border: 3px solid rgb(32, 29, 29);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-h1 {
-    color: #4e6374;
-    font-family: 'Courier New', Courier, monospace;
-    text-align: justify;
-}
-
-h2 {
-    align-content: center;
-    text-align: center;
-    color: rgb(41, 34, 6);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 2rem;
-}
-
-
 /* Zebra striping */
 
 tr:nth-of-type(odd) {
