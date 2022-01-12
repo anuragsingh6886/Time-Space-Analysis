@@ -1,318 +1,576 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Big(0)</title>
+    <link rel="icon" type="image/x-icon" href="image.png">
+
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
 </head>
-<body class="class">
-    <h2 id="data-structures">Common Data Structure Operations</h2>
-<table class="container">
 
-    <tr>
-      <th></th>
-      <th colspan="8">Time Complexity</th>
-      <th>Space Complexity</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th colspan="4">Average</th>
-      <th colspan="4">Worst</th>
-      <th>Worst</th>
-    </tr>
-    <tr>
-      <th>Data Structure</th>
-      <th>Access</th>
-      <th>Search</th>
-      <th>Insertion</th>
-      <th>Deletion</th>
-      <th>Access</th>
-      <th>Search</th>
-      <th>Insertion</th>
-      <th>Deletion</th>
-      <th></th>
-    </tr>
+<body>
+    <header>
+        <h1>Time & Space Complexity</h1>
+        <p>(Analysis.)</p>
+    </header>
+    <main role="main">
+        <article>
+            <section class="introduction">
+                <h2>What is Time and Space complexity?</h2>
+                <strong>
+                <p>"Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run as a function 
+                    of the length of the input."</p>
+                </strong>
+                <p>Sometimes, there are more than one way to solve a problem. We need to learn how to compare the performance different algorithms and choose the best one to solve a particular problem. While analyzing an algorithm, we mostly consider time
+                    complexity and space complexity. Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run as a function of the length of the input. Similarly, Space complexity of an algorithm quantifies the amount
+                    of space or memory taken by an algorithm to run as a function of the length of the input.</p>
+            </section>
 
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Array_data_structure">Array</a></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Queue_(abstract_data_type)">Queue</a></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Singly_linked_list#Singly_linked_lists">Singly-Linked List</a></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Doubly_linked_list">Doubly-Linked List</a></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="yellow">&Theta;(n)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="green">O(1)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Skip_list">Skip List</a></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="orange">O(n log(n))</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Hash_table">Hash Table</a></td>
-      <td><code class="gray">N/A</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="green">&Theta;(1)</code></td>
-      <td><code class="gray">N/A</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Binary_search_tree">Binary Search Tree</a></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="https://en.wikipedia.org/wiki/Cartesian_tree">Cartesian Tree</a></td>
-      <td><code class="gray">N/A</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="gray">N/A</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/B_tree">B-Tree</a></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Red-black_tree">Red-Black Tree</a></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="https://en.wikipedia.org/wiki/Splay_tree">Splay Tree</a></td>
-      <td><code class="gray">N/A</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="gray">N/A</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/AVL_tree">AVL Tree</a></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/K-d_tree">KD Tree</a></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow-green">&Theta;(log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
+            <figure>
+                <img src="img.jpg" alt="Complexity Chart" />
+                <figcaption>Complexity Chart by <a href="https://picsum.photos">Picsum.photos</a></figcaption>
+            </figure>
+            <h3>Comolexity Analysis</h3>
 
-</table>
+            <p>Some algorithms are more efficient than others. We would prefer to chose an efficient algorithm, so it would be nice to have metrics for comparing algorithm efficiency.<br></p>
+            <p>The complexity of an algorithm is a function describing the efficiency of the algorithm in terms of the amount of data the algorithm must process. Usually there are natural units for the domain and range of this function. There are two main
+                complexity measures of the efficiency of an algorithm:</p>
+            <p><b>Time complexity </b>is a function describing the amount of time an algorithm takes in terms of the amount of input to the algorithm. "Time" can mean the number of memory accesses performed, the number of comparisons between integers, the
+                number of times some inner loop is executed, or some other natural unit related to the amount of real time the algorithm will take. We try to keep this idea of time separate from "wall clock" time, since many factors unrelated to the algorithm
+                itself can affect the real time (like the language used, type of computing hardware, proficiency of the programmer, optimization in the compiler, etc.). It turns out that, if we chose the units wisely, all of the other stuff doesn't matter
+                and we can get an independent measure of the efficiency of the algorithm.</p>
+            <p><b>Space complexity</b> is a function describing the amount of memory (space) an algorithm takes in terms of the amount of input to the algorithm. We often speak of "extra" memory needed, not counting the memory needed to store the input itself.
+                Again, we use natural (but fixed-length) units to measure this. We can use bytes, but it's easier to use, say, number of integers used, number of fixed-sized structures, etc. In the end, the function we come up with will be independent
+                of the actual number of bytes needed to represent the unit. Space complexity is sometimes ignored because the space used is minimal and/or obvious, but sometimes it becomes as important an issue as time.</p>
+            <br>
+            <hr>
+            <h2 id="data-structures">Data Structure Operations</h2>
+            <hr>
+            <table class="table-striped">
 
-<h2 id="sorting">Array Sorting Algorithms</h2>
-<table class="container">
-    <tr>
-      <th></th>
-      <th colspan="3">Time Complexity</th>
-      <th>Space Complexity</th>
-    </tr>
-    <tr>
-      <th>Algorithm</th>
-      <th>Best</th>
-      <th>Average</th>
-      <th>Worst</th>
-      <th>Worst</th>
-    </tr>
+                <tr>
+                    <th></th>
+                    <th colspan="8">Time Complexity</th>
+                    <th>Space Complexity</th>
+                </tr>
+                <tr>
+                    <th>Data Structure</th>
+                    <th colspan="4">Average</th>
+                    <th colspan="4">Worst</th>
+                    <th>Worst</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Access</th>
+                    <th>Search</th>
+                    <th>Insertion</th>
+                    <th>Deletion</th>
+                    <th>Access</th>
+                    <th>Search</th>
+                    <th>Insertion</th>
+                    <th>Deletion</th>
+                    <th></th>
+                </tr>
 
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Quicksort">Quicksort</a></td>
-      <td><code class="orange">&Omega;(n log(n))</code></td>
-      <td><code class="orange">&Theta;(n log(n))</code></td>
-      <td><code class="red">O(n^2)</code></td>
-      <td><code class="yellow-green">O(log(n))</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Merge_sort">Mergesort</a></td>
-      <td><code class="orange">&Omega;(n log(n))</code></td>
-      <td><code class="orange">&Theta;(n log(n))</code></td>
-      <td><code class="orange">O(n log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Timsort">Timsort</a></td>
-      <td><code class="yellow">&Omega;(n)</code></td>
-      <td><code class="orange">&Theta;(n log(n))</code></td>
-      <td><code class="orange">O(n log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Heapsort">Heapsort</a></td>
-      <td><code class="orange">&Omega;(n log(n))</code></td>
-      <td><code class="orange">&Theta;(n log(n))</code></td>
-      <td><code class="orange">O(n log(n))</code></td>
-      <td><code class="green">O(1)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Bubble_sort">Bubble Sort</a></td>
-      <td><code class="yellow">&Omega;(n)</code></td>
-      <td><code class="red">&Theta;(n^2)</code></td>
-      <td><code class="red">O(n^2)</code></td>
-      <td><code class="green">O(1)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a></td>
-      <td><code class="yellow">&Omega;(n)</code></td>
-      <td><code class="red">&Theta;(n^2)</code></td>
-      <td><code class="red">O(n^2)</code></td>
-      <td><code class="green">O(1)</code></td>
-    </tr>
-    <tr>
-      <td><a  style="color: black;" href="http://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a></td>
-      <td><code class="red">&Omega;(n^2)</code></td>
-      <td><code class="red">&Theta;(n^2)</code></td>
-      <td><code class="red">O(n^2)</code></td>
-      <td><code class="green">O(1)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="https://en.wikipedia.org/wiki/Tree_sort">Tree Sort</a></td>
-      <td><code class="orange">&Omega;(n log(n))</code></td>
-      <td><code class="orange">&Theta;(n log(n))</code></td>
-      <td><code class="red">O(n^2)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="http://en.wikipedia.org/wiki/Shellsort">Shell Sort</a></td>
-      <td><code class="orange">&Omega;(n log(n))</code></td>
-      <td><code class="red">&Theta;(n(log(n))^2)</code></td>
-      <td><code class="red">O(n(log(n))^2)</code></td>
-      <td><code class="green">O(1)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" rel="tooltip" title="Only for integers. k is a number of buckets" href="http://en.wikipedia.org/wiki/Bucket_sort">Bucket Sort</a></td>
-      <td><code class="green">&Omega;(n+k)</code></td>
-      <td><code class="green">&Theta;(n+k)</code></td>
-      <td><code class="red">O(n^2)</code></td>
-      <td><code class="yellow">O(n)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" rel="tooltip" title="Constant number of digits 'k'" href="http://en.wikipedia.org/wiki/Radix_sort">Radix Sort</a></td>
-      <td><code class="green">&Omega;(nk)</code></td>
-      <td><code class="green">&Theta;(nk)</code></td>
-      <td><code class="green">O(nk)</code></td>
-      <td><code class="yellow">O(n+k)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" rel="tooltip" title="Difference between maximum and minimum number 'k'" href="https://en.wikipedia.org/wiki/Counting_sort">Counting Sort</a></td>
-      <td><code class="green">&Omega;(n+k)</code></td>
-      <td><code class="green">&Theta;(n+k)</code></td>
-      <td><code class="green">O(n+k)</code></td>
-      <td><code class="yellow">O(k)</code></td>
-    </tr>
-    <tr>
-      <td><a style="color: black;" href="https://en.wikipedia.org/wiki/Cubesort">Cubesort</a></td>
-      <td><code class="yellow">&Omega;(n)</code></td>
-      <td><code class="orange">&Theta;(n log(n))</code></td>
-      <td><code class="orange">O(n log(n))</code></td>
-      <td><code class="yellow">O(n)</code></td>
-   </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Array_data_structure">Array</a></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Stack_(abstract_data_type)">Stack</a></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Queue_(abstract_data_type)">Queue</a></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Singly_linked_list#Singly_linked_lists">Singly-Linked List</a>
+                    </td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Doubly_linked_list">Doubly-Linked List</a></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="yellow">&Theta;(n)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Skip_list">Skip List</a></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="orange">O(n log(n))</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Hash_table">Hash Table</a></td>
+                    <td><code class="gray">N/A</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="green">&Theta;(1)</code></td>
+                    <td><code class="gray">N/A</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Binary_search_tree">Binary Search Tree</a></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Cartesian_tree">Cartesian Tree</a></td>
+                    <td><code class="gray">N/A</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="gray">N/A</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/B_tree">B-Tree</a></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Red-black_tree">Red-Black Tree</a></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Splay_tree">Splay Tree</a></td>
+                    <td><code class="gray">N/A</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="gray">N/A</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/AVL_tree">AVL Tree</a></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/K-d_tree">KD Tree</a></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow-green">&Theta;(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
 
-</table>
+            </table>
+            <br>
+            <hr>
+            <h2 id="sorting">Array Sorting Algorithms</h2>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th></th>
+                    <th colspan="3">Time Complexity</th>
+                    <th>Space Complexity</th>
+                </tr>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Best</th>
+                    <th>Average</th>
+                    <th>Worst</th>
+                    <th>Worst</th>
+                </tr>
+
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Quicksort">Quicksort</a></td>
+                    <td><code class="orange">&Omega;(n log(n))</code></td>
+                    <td><code class="orange">&Theta;(n log(n))</code></td>
+                    <td><code class="red">O(n^2)</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Merge_sort">Mergesort</a></td>
+                    <td><code class="orange">&Omega;(n log(n))</code></td>
+                    <td><code class="orange">&Theta;(n log(n))</code></td>
+                    <td><code class="orange">O(n log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Timsort">Timsort</a></td>
+                    <td><code class="yellow">&Omega;(n)</code></td>
+                    <td><code class="orange">&Theta;(n log(n))</code></td>
+                    <td><code class="orange">O(n log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Heapsort">Heapsort</a></td>
+                    <td><code class="orange">&Omega;(n log(n))</code></td>
+                    <td><code class="orange">&Theta;(n log(n))</code></td>
+                    <td><code class="orange">O(n log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Bubble_sort">Bubble Sort</a></td>
+                    <td><code class="yellow">&Omega;(n)</code></td>
+                    <td><code class="red">&Theta;(n^2)</code></td>
+                    <td><code class="red">O(n^2)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a></td>
+                    <td><code class="yellow">&Omega;(n)</code></td>
+                    <td><code class="red">&Theta;(n^2)</code></td>
+                    <td><code class="red">O(n^2)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a></td>
+                    <td><code class="red">&Omega;(n^2)</code></td>
+                    <td><code class="red">&Theta;(n^2)</code></td>
+                    <td><code class="red">O(n^2)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Tree_sort">Tree Sort</a></td>
+                    <td><code class="orange">&Omega;(n log(n))</code></td>
+                    <td><code class="orange">&Theta;(n log(n))</code></td>
+                    <td><code class="red">O(n^2)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="http://en.wikipedia.org/wiki/Shellsort">Shell Sort</a></td>
+                    <td><code class="orange">&Omega;(n log(n))</code></td>
+                    <td><code class="red">&Theta;(n(log(n))^2)</code></td>
+                    <td><code class="red">O(n(log(n))^2)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a rel="tooltip" title="Only for integers. k is a number of buckets" href="http://en.wikipedia.org/wiki/Bucket_sort">Bucket Sort</a></td>
+                    <td><code class="green">&Omega;(n+k)</code></td>
+                    <td><code class="green">&Theta;(n+k)</code></td>
+                    <td><code class="red">O(n^2)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a rel="tooltip" title="Constant number of digits 'k'" href="http://en.wikipedia.org/wiki/Radix_sort">Radix Sort</a></td>
+                    <td><code class="green">&Omega;(nk)</code></td>
+                    <td><code class="green">&Theta;(nk)</code></td>
+                    <td><code class="green">O(nk)</code></td>
+                    <td><code class="yellow">O(n+k)</code></td>
+                </tr>
+                <tr>
+                    <td><a rel="tooltip" title="Difference between maximum and minimum number 'k'" href="https://en.wikipedia.org/wiki/Counting_sort">Counting Sort</a></td>
+                    <td><code class="green">&Omega;(n+k)</code></td>
+                    <td><code class="green">&Theta;(n+k)</code></td>
+                    <td><code class="green">O(n+k)</code></td>
+                    <td><code class="yellow">O(k)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Cubesort">Cubesort</a></td>
+                    <td><code class="yellow">&Omega;(n)</code></td>
+                    <td><code class="orange">&Theta;(n log(n))</code></td>
+                    <td><code class="orange">O(n log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+            </table>
+            <br>
+            <hr>
+            <h2 id="sorting">Functions of Different Java Collections</h2>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th></th>
+                    <th colspan="5">Time Complexity</th>
+                </tr>
+                <tr>
+                    <th>List</th>
+                    <th>Add</th>
+                    <th>Remove</th>
+                    <th>Get</th>
+                    <th>Contains</th>
+                    <th>Next</th>
+
+                </tr>
+
+                <tr>
+                    <td><a href="#">ArrayList</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">LinkedList</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">Timsort</a></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+            </table>
+            <hr>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th></th>
+                    <th colspan="5">Time Complexity</th>
+                </tr>
+                <tr>
+                    <th>Set</th>
+                    <th>Add</th>
+                    <th>Remove</th>
+                    <th>Get</th>
+                    <th>Contains</th>
+                    <th>Next</th>
+
+                </tr>
+
+                <tr>
+                    <td><a href="#">HashSet</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(h/n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">LinkedHashSet</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">EnumSet</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="#">TreeSet</a></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="#">CopyOnWriteArraySet</a></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">ConcurrentSkipListSet</a></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+
+                </tr>
+
+            </table>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th></th>
+                    <th colspan="5">Time Complexity</th>
+                </tr>
+                <tr>
+                    <th>Queue</th>
+                    <th>Offer</th>
+                    <th>Peak</th>
+                    <th>Poll</th>
+                    <th>Remove</th>
+                    <th>Size</th>
+
+                </tr>
+
+                <tr>
+                    <td><a href="#">PriorityQueue</a></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">LinkedList</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">ArrayDequeue</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="#">ConcurrentLinkedQueue</a></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="#">ArrayBlockingQueue</a></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">PriorirityBlockingQueue</a></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">SynchronousQueue</a></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+                <tr>
+                    <td><a href="#">DelayQueue</a></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow-green">O(log(n))</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                </tr>
+                <tr>
+                    <td><a href="#">LinkedBlockingQueue</a></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="green">O(1)</code></td>
+                    <td><code class="yellow">O(n)</code></td>
+                    <td><code class="green">O(1)</code></td>
+
+                </tr>
+
+
+            </table>
 </body>
+
 </html>
